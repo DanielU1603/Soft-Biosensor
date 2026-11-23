@@ -23,9 +23,12 @@ class Utils:
 
     def extracting_features(self, df: pd.DataFrame) -> np.array: 
 
-        X = df.drop(["Glucose", "Acetate"])
-        y = df.loc[:, ["Glucose", "Acetate"]]
-        return X, y
+        X_glucose = df.loc[:, "920.07"]
+        X_acetate = df.loc[:, ["1060.19", "1119.87"]]
+        y_glucose = df.loc[:, "Glucose"]
+        y_acetate = df.loc[:, "Acetate"]
+
+        return np.array(X_glucose), np.array(X_acetate), np.array(y_glucose), np.array(y_acetate)
     
 
 
